@@ -22,6 +22,20 @@ export class Data {
 
     }
 
+    compara(data:Data):number {
+
+        if (this.dataJs.getTime() == data.dataJs.getTime()) {
+            return 0;
+        }
+
+        if (this.dataJs.getTime() > data.dataJs.getTime()) {
+            return 1;
+        }
+
+        return -1;
+
+    }
+
     getDia():string {
         return this.dataSeparada[0];
     }
@@ -57,6 +71,7 @@ export class Data {
 }
 
 const aniversario = new Data('14/12/2024');
+const dataDois = new Data('15/12/2024');
 
 console.log("Print Exercício 1")
 console.log("_______________________________________________________________________________________________")
@@ -64,3 +79,4 @@ console.log("___________________________________________________________________
 console.log(`Data: ${aniversario.getDia()}/${aniversario.getMes()}/${aniversario.getAno()}`);
 console.log(`Mês da data: ${aniversario.getMesExtenso()}`);
 console.log(`Ano bissexto: ${aniversario.isBissexto()}`);
+console.log(aniversario.compara(dataDois));
